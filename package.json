@@ -1,0 +1,24 @@
+{
+  "name": "cn-apprentice-18",
+  "version": "1.0.0",
+  "description": "Apprentice Project",
+  "main": "index.js",
+  "scripts": {
+    "main": "node server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmunro/cn-apprentice-18.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmunro/cn-apprentice-18/issues"
+  },
+  "homepage": "https://github.com/nmunro/cn-apprentice-18#readme",
+  "dependencies": {
+    "eslint": "^7.11.0",
+    "jest": "^26.5.3"
+  }
+}
