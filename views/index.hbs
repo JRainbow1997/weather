@@ -1,0 +1,7 @@
+<h1>Today's weather in {{name}}</h1>
+    <ul>
+        {{#each data}}
+            <li>{{@key}} : {{this}}</li>
+        {{/each}}
+    </ul>
+<a class="btn-style" href="/weather">What's the weather?</a>
