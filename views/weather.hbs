@@ -1,21 +1,25 @@
-<h1>Weather request</h1>
+<h1>Weather Request</h1>
+<div class = "specific">
+    <form action="/weather" method="POST">
+    {{!-- POST calls app.post in the index.js file --}}
+        <label for="location">city: </label>
+        <input type="text" name="location">
+        <label for="countryCode">country code: </label>
+        <input type="text" name="countryCode">
+        <input type="submit" name="submit">
+    </form>
 
-<form action = "/weather" meathod = "POST">
-    <label for="city">City: </label>
-    <input type="text" name="city">
-    <label for="code">Country Code: </label>
-    <input type="text" name="code">
-    <input type="submit" value="submit">
-</form>
-
-{{#if err}}
-    <h2>{{err}}</h2>
-{{/if}}
-{{#if listExists}}
-    <h2>Today's weather in {{name}}:</h2>
-    <ul>
-        {{#each data}}
-            <li>{{@key}} : {{this}}</li>
-        {{/each}}
-    </ul>
-{{/if}}
+    {{#if err}}
+        <h2>{{err}}</h2>
+    {{/if}}
+    {{#if listExists}}
+        <h2>Today's weather in {{name}}:</h2>
+        <ul>
+            {{#each data}}
+            {{!-- @key is the name of the object --}}
+                    <li>{{@key}} : {{this}}</li>
+            {{/each}}
+            <li class = "icon">{{pic}}</li>
+        </ul>
+    {{/if}}
+</div>

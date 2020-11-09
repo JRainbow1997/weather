@@ -75,12 +75,12 @@ app.get('*', (req,res) => {
 });
 
 //app.post
-app.post('/weather', async (req,res) => {
-    let city = req.body.city;
-    let code = req.body.code;
+app.post('/weather', async(req,res) => { //post is called when submit input is clicked
+    let city = req.body.location; //Taken from the input box 'location' on weather
+    let code = req.body.countryCode; //Taken from the input box 'countryCode' on weather
     let data = await getWeather(city, code);
     if (data.cod == '404'){
-        res.render('weather', {
+        res.render('weather',{
             err:'The provided location doesn\'t exist'
         });
         return;
@@ -89,14 +89,17 @@ app.post('/weather', async (req,res) => {
     let temp = data.main.temp;
     let description = data.weather[0].description;
     let feels_like = data.main.feels_like;
+    let logo = await getLogo(description);
+    let pic = logo;
     res.render('weather', {
-        name,
+        name, 
         data: {description, temp, feels_like},
+        pic,
         listExists: true
     });
 });
 
 //app.listen
-app.listen(3001, () => {
-    console.log('listening on port 3001');
+app.listen(3000, () => {
+    console.log('listening on port 3000');
 });
