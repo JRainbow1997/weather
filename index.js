@@ -2,6 +2,7 @@ const express = require('express'); //express links
 const hbs = require('express-handlebars'); //handlebar links
 const path = require('path');
 const getWeather = require('./lib/getWeather'); //link to lib/getWeather
+const getLogo = require('./lib/getLogo');
 const bodyParser = require('body-parser');
 const app = express(); //delaring this as an express page
 
@@ -26,18 +27,20 @@ app.set('view engine', '.hbs');
 //app.get
 app.get('/', async(req, res) => {
     let cities = ["Manchester", "Birmingham", "Bristol", "London", "Sunderland", "Cardiff", "Edinburgh", "Belfast"];
-    name = []; description = []; temp = []; feels_like = [];
+    name = []; description = []; temp = []; feels_like = []; pic = [];
     for (i = 0; i < cities.length; i++){
         let data = await getWeather(cities[i],"uk");
-        console.log(data);
         name[i] = data.name;
         description[i] = data.weather[0].description;
         temp[i] = data.main.temp;
         feels_like[i] = data.main.feels_like;
+        let logo = await getLogo(description[i]);
+        pic[i] = logo;
     }
     res.render('index', {
         name,
-        data: {description, temp, feels_like}
+        data: {description, temp, feels_like},
+        pic
     });
 });
 app.get('/weather', (req,res) => {

@@ -1,3 +1,2 @@
 let string = "Light Rain"
-let n = string.includes("Rain")
-console.log(n);
+if (string.includes("Rain")){console.log("rain")}
