@@ -9,6 +9,7 @@ const app = express(); //delaring this as an express page
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('views/images'));
 
 //app.engine
 app.engine('hbs', hbs({
@@ -24,11 +25,16 @@ app.set('view engine', '.hbs');
 
 //app.get
 app.get('/', async(req, res) => {
-    let data = await getWeather("Manchester","uk");
-    let name = data.name;
-    let description = data.weather[0].description;
-    let temp = data.main.temp;
-    let feels_like = data.main.feels_like;
+    let cities = ["Manchester", "Birmingham", "Bristol", "London", "Sunderland", "Cardiff", "Edinburgh", "Belfast"];
+    name = []; description = []; temp = []; feels_like = [];
+    for (i = 0; i < cities.length; i++){
+        let data = await getWeather(cities[i],"uk");
+        console.log(data);
+        name[i] = data.name;
+        description[i] = data.weather[0].description;
+        temp[i] = data.main.temp;
+        feels_like[i] = data.main.feels_like;
+    }
     res.render('index', {
         name,
         data: {description, temp, feels_like}
@@ -36,6 +42,30 @@ app.get('/', async(req, res) => {
 });
 app.get('/weather', (req,res) => {
     res.render('weather');
+});
+app.get('/northwest', (req,res) => {
+    res.render('northwest');
+});
+app.get('/northeast', (req,res) => {
+    res.render('northeast');
+});
+app.get('/midlands', (req,res) => {
+    res.render('midlands');
+});
+app.get('/southwest', (req,res) => {
+    res.render('southwest');
+});
+app.get('/southeast', (req,res) => {
+    res.render('southeast');
+});
+app.get('/wales', (req,res) => {
+    res.render('wales');
+});
+app.get('/scotland', (req,res) => {
+    res.render('scotland');
+});
+app.get('/northernireland', (req,res) => {
+    res.render('northernireland');
 });
 app.get('*', (req,res) => {
     res.render('404');
@@ -64,6 +94,6 @@ app.post('/weather', async (req,res) => {
 });
 
 //app.listen
-app.listen(3000, () => {
-    console.log('listening on port 3000');
+app.listen(3001, () => {
+    console.log('listening on port 3001');
 });
