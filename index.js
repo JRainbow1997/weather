@@ -2,7 +2,7 @@ const express = require('express'); //express links
 const hbs = require('express-handlebars'); //handlebar links
 const path = require('path');
 const getWeather = require('./lib/getWeather'); //link to lib/getWeather
-const getLogo = require('./lib/getLogo');
+const getLogo = require('./lib/getLogo'); //ADDED
 const bodyParser = require('body-parser');
 const app = express(); //delaring this as an express page
 
@@ -10,7 +10,7 @@ const app = express(); //delaring this as an express page
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('views/images'));
+app.use(express.static('views/images')); //ADDED
 
 //app.engine
 app.engine('hbs', hbs({
@@ -89,12 +89,11 @@ app.post('/weather', async(req,res) => { //post is called when submit input is c
     let temp = data.main.temp;
     let description = data.weather[0].description;
     let feels_like = data.main.feels_like;
-    let logo = await getLogo(description);
-    let pic = logo;
+    let logo = await getLogo(description); //ADDED
     res.render('weather', {
         name, 
         data: {description, temp, feels_like},
-        pic,
+        logo, //ADDED
         listExists: true
     });
 });
