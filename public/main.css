@@ -2,23 +2,66 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+body{
+    color: honeydew;
+    background-image: url("sky.jpg");
+    background-position: center;
+    background-size: 100%;
+}
 nav{
-    background-color: aqua;
+    background-color: rgb(88, 88, 204);
     padding: 10px 15px;
     display: flex;
     align-content: center;
     justify-content: space-between;
+    color: white;
+}
+a:visited,a:link{
+    color: white;
+}
+a:hover{
+    opacity: 0.5;
+}
+.specific{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+h1,h3{
+    color: honeydew;
 }
 nav ul{
     display: flex;
     justify-content: space-around;
 }
-
 nav ul li{
     padding-left: 20px;
     list-style: none;
+}
+.overview{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding: 10px 15px;
+}
+.overview ul{
+    padding-bottom: 30px;
+}
+.overview ul li{
+    padding-left: 30px;
+    list-style: none;
+}
+.uk{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+.icon{
+    font-size: 50px;
 }

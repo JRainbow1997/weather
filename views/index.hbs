@@ -1,7 +1,73 @@
-<h1>Today's weather in {{name}}</h1>
-    <ul>
-        {{#each data}}
-            <li>{{@key}} : {{this}}</li>
-        {{/each}}
-    </ul>
-<a class="btn-style" href="/weather">What's the weather?</a>
+<div class = "main">
+    <h1><u>Overview of Weather in England Today</u></h1>
+    <div class = "overview">
+        <div>
+            <h3>{{name.[0]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[0]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[0]}}</li>
+            </ul>
+            <h3>{{name.[1]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[1]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[1]}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>{{name.[2]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[2]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[2]}}</li>
+            </ul>
+            <h3>{{name.[3]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[3]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[3]}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>{{name.[4]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[4]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[4]}}</li>
+            </ul>
+            <h3>{{name.[5]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[5]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[5]}}</li>
+            </ul>
+        </div>
+        <div>
+            <h3>{{name.[6]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[6]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[6]}}</li>
+            </ul>
+            <h3>{{name.[7]}}</h3>
+            <ul>
+                {{#each data}}
+                <li>{{@key}} : {{this.[7]}}</li>
+                {{/each}}
+                <li class = "icon">{{pic.[7]}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class = "uk-div">
+    <img class = "uk" id="uk" src="uk.png" alt="map">
+</div>
+{{!-- <a class="btn-style" href="/weather">What's the weather?</a> --}}
