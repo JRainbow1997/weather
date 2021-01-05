@@ -27,7 +27,7 @@ app.set('view engine', '.hbs');
 //app.get
 app.get('/', async(req, res) => {
     let cities = ["Manchester", "Birmingham", "Bristol", "London", "Sunderland", "Cardiff", "Edinburgh", "Belfast"];
-    name = []; description = []; temp = []; feels_like = []; pic = [];
+    let name = []; description = []; temp = []; feels_like = []; pic = [];
     for (i = 0; i < cities.length; i++){
         let data = await getWeather(cities[i],"uk");
         name[i] = data.name;
